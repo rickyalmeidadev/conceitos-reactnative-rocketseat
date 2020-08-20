@@ -14,22 +14,19 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="#7159c1"
-        translucent
-      />
+    <>
+      <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
 
-      <FlatList
-        style={styles.list}
-        data={projects}
-        keyExtractor={(project) => project.id}
-        renderItem={({item: project}) => (
-          <Text style={styles.title}>{project.title}</Text>
-        )}
-      />
-    </View>
+      <View style={styles.container}>
+        <FlatList
+          data={projects}
+          keyExtractor={(project) => project.id}
+          renderItem={({item: project}) => (
+            <Text style={styles.title}>{project.title}</Text>
+          )}
+        />
+      </View>
+    </>
   );
 }
 
@@ -37,12 +34,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#7159c1',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
-  list: {
-    marginTop: 40,
-  },
+
   title: {
     color: '#f5f5f5',
     fontSize: 32,
